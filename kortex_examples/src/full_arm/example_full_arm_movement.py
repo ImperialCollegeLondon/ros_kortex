@@ -221,7 +221,11 @@ class ExampleFullArmMovement:
 
         # Angles to send the arm to vertical position (all zeros)
         for _ in range(self.degrees_of_freedom):
-            angularWaypoint.angles.append(0.0)
+            if _ ==1 :
+                angularWaypoint.angles.append(-10)
+            else:
+                angularWaypoint.angles.append(0.0)
+
 
         # Each AngularWaypoint needs a duration and the global duration (from WaypointList) is disregarded. 
         # If you put something too small (for either global duration or AngularWaypoint duration), the trajectory will be rejected.
@@ -350,7 +354,7 @@ class ExampleFullArmMovement:
 
             #*******************************************************************************
             # Move the robot to the Home position with an Action
-            success &= self.example_home_the_robot()
+            ###success &= self.example_home_the_robot()
             #*******************************************************************************
 
             #*******************************************************************************
@@ -364,11 +368,11 @@ class ExampleFullArmMovement:
 
             #*******************************************************************************
             # Set the reference frame to "Mixed"
-            success &= self.example_set_cartesian_reference_frame()
+            ###success &= self.example_set_cartesian_reference_frame()
 
             # Example of cartesian pose
             # Let's make it move in Z
-            success &= self.example_send_cartesian_pose()
+            ###success &= self.example_send_cartesian_pose()
             #*******************************************************************************
 
             #*******************************************************************************
@@ -388,17 +392,17 @@ class ExampleFullArmMovement:
         
             #*******************************************************************************
             # Move the robot to the Home position with an Action
-            success &= self.example_home_the_robot()
+            ###success &= self.example_home_the_robot()
             #*******************************************************************************
 
             #*******************************************************************************
             # Example of waypoint
             # Let's move the arm
-            success &= self.example_cartesian_waypoint_action()
+            ###success &= self.example_cartesian_waypoint_action()
 
             #*******************************************************************************
             # Move the robot to the Home position with an Action
-            success &= self.example_home_the_robot()
+           ### success &= self.example_home_the_robot()
             #*******************************************************************************
 
         # For testing purposes
